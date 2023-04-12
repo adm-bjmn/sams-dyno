@@ -6,6 +6,8 @@ from django.core.mail import send_mail
 
 
 def home(request):
+    ''' this view needs to get the latest three blog posts and apass them into the context dictionsary
+    '''
     return render(request, 'index.html', {})
 
 
@@ -35,7 +37,7 @@ def performance_shop(request):
 
 
 def blog_posts(request):
-    return render(request, 'blog-app/blog-posts.html', {})
+    return render(request, 'blog/blog-posts.html', {})
 
 
 def blog_details(request):
@@ -43,7 +45,7 @@ def blog_details(request):
 
 
 def create_blog_post(request):
-    return render(request, 'index.html', {})
+    return render(request, 'blog/create-blog-post.html', {})
 
 
 def edit_blog_post(request):
