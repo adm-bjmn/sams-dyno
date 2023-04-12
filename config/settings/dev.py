@@ -22,3 +22,16 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media/')
+
+
+# Email Setting
+# Dev
+EMAIL_HOST = '127.0.0.1'
+EMAIL_PORT = '1025'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+
+
+# python3 -m smtpd -n -c DebuggingServer 127.0.0.1:1025
