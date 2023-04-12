@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.forms import PasswordChangeForm
+from .forms import ChangeUserPassword
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.http import HttpResponseRedirect
@@ -31,9 +31,9 @@ def logout_user(request):
     return redirect('home')
 
 
-def change_password(request, user_id):
+def change_password(request):
     ''' Utilising built in django authentication'''
-    user = get_object_or_404(User, id=user_id)
+    user = get_object_or_404(User, id=1)
     if request.method == 'POST':
         form = ChangeUserPassword(data=request.POST, user=user)
         if form.is_valid():
@@ -43,4 +43,4 @@ def change_password(request, user_id):
             return redirect('profile', user_id)
     else:
         form = ChangeUserPassword(user=user)
-    return render(request, 'staff-app/change_password.html', {'form': form, })
+    return render(request, 'staff-app/change-password.html', {'form': form, })

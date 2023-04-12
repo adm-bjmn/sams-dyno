@@ -55,7 +55,8 @@
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - Sams Dyno - Built by Adm.bjmn</div></div>
             <!-- If use user is auth change to logout -->
             <div style='padding-left:5px;'>
-            {% if user.is_authenticated %}   
+            {% if user.is_authenticated %} 
+                <a href="{% url 'change_password' %}"><button type="button" class="btn btn-outline-info btn-sm">Change Password</button></a>
             {% else %}
                 <a href="{% url 'login_user' %}"><button type="button" class="btn btn-outline-info btn-sm"> Staff Login</button></a>
             {% endif %}

@@ -6,6 +6,6 @@ from django.urls import path
 urlpatterns = [
     path('login_user/', views.login_user, name='login_user'),
     path('logout_user/', views.logout_user, name='logout_user'),
-    path('change_password/<user_id>',
+    path('change_password/',
          views.change_password, name='change_password'),
 ]
