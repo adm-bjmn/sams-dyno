@@ -3,4 +3,29 @@
     Perfromance Shop
 {% endblock title %} 
 {% block content %}
+<header class="masthead">
+    <section class="page-section">
+        <div class="container">
+            <div class="row">
+                <!-- Google Map column -->
+                <div class="col-lg-8">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2409.052370660372!2d-1.7174546836321114!3d52.85745861891684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a04ae1a9f334f%3A0xe1d12d9587c34fea!2sSams%20Dyno%20Centre!5e0!3m2!1sen!2suk!4v1681234021786!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <!-- Contact details column -->
+                <div class="col-lg-4">
+                    <h2>Performance Shop</h2>
+                    <p><strong>Address:</strong> Unit 117, Fauld Industrial Estate, Fauld (Nr Tutbury), Burton-on-Trent, DE13 9HS</p>
+                    <p><strong>Phone:</strong>  01283 813 879</p>
+                    <p><strong>Mobile:</strong>  +44 780 225 6219</p>
+                    <p><strong>Email:</strong> samsdyno@samsdyno.com</p>
+                    <h2>Opening Hours</h2>
+                    <p><strong>Monday-Friday:</strong> 9am-5pm</p>
+                    <p><strong>Saturday:</strong> 10am-2pm</p>
+                    <p><strong>Sunday:</strong> Closed</p>
+                    <a class="btn btn-info btn-xl" href="{%url 'home'%}#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
 {% endblock content %}

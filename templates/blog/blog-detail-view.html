@@ -3,4 +3,6 @@
     {{blog.title}}
 {% endblock title %} 
 {% block content %}
+<img src="{{blog.image.url}}">
+{{blog.content|safe}}
 {% endblock content %}
