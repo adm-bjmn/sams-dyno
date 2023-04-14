@@ -1,8 +1,84 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
-    {{blog.title}}
-{% endblock title %} 
+  {% if user.is_authenticated %}
+   Blog Posts
+  {%else%}
+   Unauthorised
+  {% endif %}
+{% endblock title %}
+
+{% if user.is_authenticated %}
 {% block content %}
-<img src="{{blog.image.url}}">
-{{blog.content|safe}}
+<section class="page-section bg-dark text-white" id='contact'>
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-8 align-self-end">
+          <img class="img-fluid" src="{% static 'assets/img/dynowhite-cropped.svg'%}" alt="..." />
+
+        </div>
+      </div>
+  </div>
+</section>
+<!-- Blog preview section-->
+<section class="page-section" id="news">
+  <div class="container px-5 my-5">
+      <div class="row gx-5 justify-content-center">
+          <div class="col-lg-8 col-xl-6">
+              <div class="text-center">
+                  <h2 class="fw-bolder">The Dyno Diary</h2>
+                  <p class="lead fw-normal text-muted mb-5"></p>
+              </div>
+          </div>
+      </div>
+
+        <div>
+            <div class="card h-100 shadow border-0">
+              <img class="card-img-top" style="width: 100%; height: auto; object-fit: contain;"src="{{blog_post.image.url}}" alt="..." />
+                <div class="card-body p-4">
+                    <div class="badge bg-info bg-gradient rounded-pill mb-2">
+                        {% for topic in blog_post.topic.all %}
+                        {{topic.topic}}{% endfor %}</div>
+                    <h5 class="card-title mb-3">{{blog_post.title}}</h5>
+                    <p class="card-text mb-0">{{blog_post.content|safe}}...</p>
+                    {% if link %}
+                    <a href="{{link}}" target="_blank"><div class="fw-bold">{{link}}</div></a>
+                    {% endif %}
+                </div>
+                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                    <div class="d-flex align-items-end justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                            <div class="small">
+                                <div class="fw-bold">{{ blog_post.click_bait}}</div>
+                                <div class="text-muted">{{blog_post.publish_date}} &middot; <a href="{% url 'blog' %}" class="btn btn-outline-info">back</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</section>
+{% if user.is_authenticated %}
+
+<div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+            <div class="mb-2"><a href="{% url 'edit_blog' blog_post.id %}" class="btn btn-outline-info">Edit Post</a></div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+            <div class="mb-2"><a href="{% url 'delete_blog_post' blog_post.id %}" onclick="if(confirm('Are You sure? This cannot be undone.')){}else{return false;};" class="btn btn-outline-info">Delete Post</a></div>
+        </div>
+    </div>
+</div>
+
+{%endif %}
 {% endblock content %}
+{%else%}
+You are not authorised to view this page.
+{% endif %}
+
+

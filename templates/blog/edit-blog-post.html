@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{%load static %}
 {% block title %}
   {% if user.is_authenticated %}
    Edit Blog Post 
@@ -13,16 +14,42 @@
   <div class="container">
       <div class="row">
         <div class="col-lg-8 align-self-end">
-          <img class="img-fluid" src="static/assets/img/dynowhite-cropped.svg" alt="..." />
+          <img class="img-fluid" src="{% static 'assets/img/dynowhite-cropped.svg'%}" alt="..." />
         </div>
       </div>
   </div>
 </section>
 <section class="page-section bg-dark text-white" id='contact'>
   <div class="container">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <h4 class="main-titles" style="margin-bottom:1%;"=>Update Blog Post</h4>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+              <div class="mb-2"><a href="javascript:history.go(-1)" class="btn btn-outline-secondary">Cancel</a></div>
+          </div>
+      </div>
+    </div>
+    {% if form.errors %}
+    <p>There was an Error With your form. Details:</p>
+    {{form.errors}}
+    {% endif %}
       <div class="row">
         <div class="col-lg-8 align-self-end">
-          edit blog post
+          <form action= "" method="POST" class = 'auth-form'>
+            {% csrf_token %}
+            {% for fields in form  %}
+            <label class="form-label">{{ fields.label }}</label>
+            <div style="padding-bottom: 5px;">{{ fields }}</div>
+    
+            {% endfor %}
+          <div style = 'padding-top: 20px;'>
+            <input type="submit", value = "Update", class="btn btn-outline-info" style="width:100%"></input>
+          </div>
+        </form>
         </div>
       </div>
   </div>

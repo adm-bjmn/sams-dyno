@@ -33,7 +33,7 @@ def logout_user(request):
 
 def change_password(request):
     ''' Utilising built in django authentication'''
-    user = get_object_or_404(User, id=1)
+    user = get_object_or_404(User, username='SamsDyno')
     if request.method == 'POST':
         form = ChangeUserPassword(data=request.POST, user=user)
         if form.is_valid():

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
   {% if user.is_authenticated %}
    Create Blog Post 
@@ -22,11 +23,30 @@
   <div class="container">
       <div class="row">
         <div class="col-lg-8 align-self-end">
-          create blog post
+        </div>
+        {% if form.errors %}
+        <p>There was an Error With your form. Details:</p>
+        {{form.errors}}
+        {% endif %}
+          <div class="row">
+            <div class="col-lg-8 align-self-end">
+              <form action= "" method="POST" enctype="multipart/form-data" class = 'auth-form'>
+                {% csrf_token %}
+               
+                {{form.as_p}}
+                {{form.media}}
+              <div style = 'padding-top: 20px;'>
+              <input type="submit", method='POST', value="Add Blog Post", class="btn btn-outline-info" style="width:100%"></input>
+              </div>
+            </form>
+            </div>
+          </div>
         </div>
       </div>
   </div>
 </section>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
 {% endblock content%}
 {%else%}
 You are not authorised to view this page.
