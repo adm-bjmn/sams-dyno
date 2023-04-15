@@ -26,11 +26,11 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'performance' %}">Performance</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'repairs' %}">Repairs</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="{% url 'home' %}#about">About</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'performance' %}">Performance Dept</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'repairs' %}">Engineering Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">News</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" Style="color:orange;" href="{% url 'home' %}#contact">Contact</a></li>
                         {% if user.is_authenticated%}
                         <li class="nav-item"><a class="nav-link" href="{% url 'create_blog' %}">Add Blog Entry</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout_user' %}">Logout</a>

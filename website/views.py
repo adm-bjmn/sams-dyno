@@ -12,7 +12,7 @@ from django.contrib import messages
 
 def home(request):
     blog_posts = BlogPost.objects.order_by('-publish_date')[:3]
-    return render(request, 'index.html', {'blog_posts': blog_posts})
+    return render(request, 'all.html', {'blog_posts': blog_posts})
 
 
 def contact(request):

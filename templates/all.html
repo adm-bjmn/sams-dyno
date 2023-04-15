@@ -1,0 +1,424 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Sams Dyno - {% block title %}{% endblock title %}</title>
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles-copy.css'%}" rel="stylesheet" text="text/css" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{% url 'home' %}">Sams Dyno Center</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <!--<li class="nav-item"><a class="nav-link" href="{% url 'home' %}#about">About</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'performance' %}">Performance Dept</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'repairs' %}">Engineering Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">News</a></li>
+                        <li class="nav-item"><a class="nav-link" Style="color:orange;" href="{% url 'home' %}#contact">Contact</a></li>
+                        {% if user.is_authenticated%}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'create_blog' %}">Add Blog Entry</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout_user' %}">Logout</a>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+<header class="masthead" style='height: 80vh;'>
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <img class="img-fluid" src="static/assets/img/dynowhite-cropped.svg" alt="..." />
+            </br></br>
+                <h1 class="text-white font-weight-bold">The Single Cylinder Specialists </h1>
+
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-white-75 mb-5">Motorcycle Tuning, Engineering and Repairs Shop operated by Former British Flat Track Mad Dog Sam Ermolenko.</p>
+                <a class="btn btn-info btn-xl" style='background-color:orange; color:white;' href="#contact">Contact</a>
+            </div>
+        </div>
+    </div>
+    
+</header>
+<!-- About -->
+<section class="page-section" id="about">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">About</h2>
+        <div class="row gx-4 gx-lg-5">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ligula nisi, euismod ac mattis quis, sodales ut orci. 
+            Sed nec blandit orci, eget laoreet sem. Ut vitae efficitur massa, et varius dolor. Pellentesque suscipit varius pharetra.
+             Ut porta ante nec orci ultrices sollicitudin. Fusce ac risus egestas, consequat nunc at, facilisis diam. Mauris sagittis dolor tincidunt, congue magna sed, blandit dolor. Integer vel purus elit. Vivamus rhoncus consequat lectus, id vestibulum neque.
+Aliquam erat volutpat. Donec maximus lacus et mauris sollicitudin lobortis. Etiam ut nibh consequat, blandit lacus a, tristique lectus.
+    </div>
+</br></br></br>
+<!-- Services-->
+
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">Services</h2>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Tuning</h3>
+                    <p class="text-muted mb-0">we make fast</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Repairs</h3>
+                    <p class="text-muted mb-0">We will rebuild you engine for you after you have neglected it for 20 years</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Engineering</h3>
+                    <p class="text-muted mb-0">Rebores an ting</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Performance parts</h3>
+                    <p class="text-muted mb-0">We get the good shit</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Dyno --> 
+<section class="page-section bg-info" id="dyno">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <img class="img-fluid" src="static/assets/img/dynojet-research-inc-vector-logo-cropped.svg" alt="..." />
+                </br></br>
+                <h2 class="text-white mt-0">State of the art Dynojet Tuning Service</h2>
+                <p class="text-white-75 mb-4">We makea the go go for the motorcycles</p>
+                <a class="btn btn-light btn-xl" href="{% url 'performance'%}">More Info</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog preview section-->
+<section class="page-section" id="news">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="text-center">
+                    <h2 class="fw-bolder">Latest News</h2>
+                    <p class="lead fw-normal text-muted mb-5"></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row gx-5">
+            {% for post in blog_posts %}
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="{{post.image.url}}" alt="..." />
+                    <div class="card-body p-4">
+                        <div class="badge bg-info bg-gradient rounded-pill mb-2">
+                            {% for topic in post.topic.all %}
+                            {{topic.topic}}{% endfor %}</div>
+                        <a class="text-decoration-none link-dark stretched-link" href="{% url 'blog_details' post.id %}"><h5 class="card-title mb-3">{{post.title}}</h5></a>
+                        <p class="card-text mb-0">{{post.content|slice:":200"|safe}}</p>
+                    </div>
+                    <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                        <div class="d-flex align-items-end justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                <div class="small">
+                                    <div class="fw-bold">{{ post.click_bait}}</div>
+                                    <div class="text-muted">{{post.publish_date}} &middot; </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+            <a class="btn btn-info btn-xl" style='width:40%;margin: 0 auto;' href="{% url 'blog' %}">More</a>
+        </div>
+    </div>
+</section>
+<!-- Call to action-->
+<section class="page-section bg-dark text-white" id='contact'>
+    <div class="container">
+        <div class="row">
+            <!-- Google Map column -->
+            <div class="col-lg-8">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2409.052370660372!2d-1.7174546836321114!3d52.85745861891684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a04ae1a9f334f%3A0xe1d12d9587c34fea!2sSams%20Dyno%20Centre!5e0!3m2!1sen!2suk!4v1681234021786!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- Contact details column -->
+            <div class="col-lg-4">
+                <h2>How To Find Us</h2>
+                <p><strong>Address:</strong> Unit 117, Fauld Industrial Estate, Fauld (Nr Tutbury), Burton-on-Trent, DE13 9HS</p>
+                <p><strong>Phone:</strong>  01283 813 879</p>
+                <p><strong>Mobile:</strong>  +44 780 225 6219</p>
+                <p><strong>Email:</strong> samsdyno@samsdyno.com</p>
+                <h2>Opening Hours</h2>
+                <p><strong>Monday-Friday:</strong> 9am-5pm</p>
+                <p><strong>Saturday:</strong> 10am-2pm</p>
+                <p><strong>Sunday:</strong> Closed</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Form -->
+<section class="page-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Get In Touch</h2>
+                <p class="text-muted mb-5">Send us a message and we will get back to you as soon as possible!</p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <form id="contactForm" action="{% url 'contact' %}" method="post">
+                    {% csrf_token %}
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" name="Name"/>
+                        <label for="name">Full name</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" name="Email"/>
+                        <label for="email">Email address</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                    </div>
+
+                    <!-- Message input-->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required" name="Message"></textarea>
+                        <label for="message">Message</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <div class="d-grid"><button class="btn btn-info btn-xl" id="submitButton" type="submit" value="Send">Submit</button></div>
+                </form>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                <i class="bi-phone fs-2 mb-3 text-muted"></i>
+                <div>+44 780 225 6219</div>
+            </div>
+        </div>
+    </div>
+</section>
+<header class="masthead">
+    <section class="page-section">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <iframe width="840" height="472" src="https://www.youtube.com/embed/nuZ_bafNtvk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </br></br>
+                    <h2 class="text-white mt-0">State of the art Dynojet Tuning Service</h2>
+                    <p class="text-white-75 mb-4">Heres a sneak peak inside state of the art dyno facility, 
+                        blah blah climate control, blah blah air pressure, for acurate readings and optimum control.</p>
+                    <p class="text-white-75 mb-4">Click the link below to enqire about performance work or dyno readings.</p>
+                    <a class="btn btn-info btn-xl" style='background-color:orange; color:white;' href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+<header class="masthead">
+    <section class="page-section">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <iframe width="840" height="472" src="https://www.youtube.com/embed/nuZ_bafNtvk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </br></br>
+                    <h2 class="text-white mt-0">Traditional machining and repairs shop</h2>
+                    <p class="text-white-75 mb-4">At Sams Dyno we are proud to be making use of time honoured
+                        techniques making sure that the art of motorcycle maintainece remains very much alive. 
+                        All of our repairs are done by humans hands and any work that need doing
+                         will be done in house to make sure that we are getting the job done to our signiature high standard every single time.</p>
+                    <p class="text-white-75 mb-4">Click the link below to get in touch with our workshop team.</p>
+                    <a class="btn btn-info btn-xl" style='background-color:orange; color:white;' href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+<section class="page-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Change Password</h2>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <form action= "" method="POST" class = 'auth-form'>
+                  {% csrf_token %}
+                  {% for fields in form  %}
+                  <label class="form-label">{{ fields.label }}</label>
+                  <div style="padding-bottom: 5px;">{{ fields }}</div>
+        
+                  {% endfor %}
+                <div style = 'padding-top: 20px;'>
+                  <input type="submit" class="btn btn-outline-secondary" style="width:100%"></input>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  <header class="masthead">
+    <div style='padding-top:50px;'>
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Staff Login</h2>
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                <div class="col-lg-6">
+                    <form method="POST" class = 'auth-form'>
+                        {% csrf_token %}
+                        <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username" placeholder="">
+                        <!--<div id="emailHelp" class="form-text">We will never share information.</div>-->
+                        </div>
+                        <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="">
+                        </div>
+                        <div style="padding-top: 10px;">
+                        <button type="submit" class="btn btn-info btn-xl" style="width:100%">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="page-section bg-dark text-white" id='contact'>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-8 align-self-end">
+            <img class="img-fluid" src="{% static 'assets/img/dynowhite-cropped.svg'%}" alt="..." />
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="page-section bg-dark text-white" id='contact'>
+    <div class="container">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5">
+              <h4 class="main-titles" style="margin-bottom:1%;"=>Update Blog Post</h4>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5">
+                <div class="mb-2"><a href="javascript:history.go(-1)" class="btn btn-outline-secondary">Cancel</a></div>
+            </div>
+        </div>
+      </div>
+      {% if form.errors %}
+      <p>There was an Error With your form. Details:</p>
+      {{form.errors}}
+      {% endif %}
+        <div class="row">
+          <div class="col-lg-8 align-self-end">
+            <form action= "" method="POST" class = 'auth-form'>
+              {% csrf_token %}
+              {% for fields in form  %}
+              <label class="form-label">{{ fields.label }}</label>
+              <div style="padding-bottom: 5px;">{{ fields }}</div>
+      
+              {% endfor %}
+            <div style = 'padding-top: 20px;'>
+              <input type="submit", value = "Update", class="btn btn-outline-info" style="width:100%"></input>
+            </div>
+          </form>
+          </div>
+        </div>
+    </div>
+  </section>
+
+
+
+
+
+        <div class="sticky-bottom" style='padding-bottom:5px;'>
+            <div class="container px-4 px-lg-5 d-flex justify-content-end">
+                <a href="https://www.facebook.com"  target=”_blank”><img style='height:35px; padding-right:5px;' src="{% static 'assets/img/FB.png' %}" alt="..." /></a>
+                <a href="https://www.instagram.com"  target=”_blank”><img style='height:35px; padding-right:5px;' src="{% static 'assets/img/IG.png' %}" alt="..." /></a>
+                <a href="https://www.youtube.com"  target=”_blank”><img style='height:35px' src=
+                    "{% static 'assets/img/Youtube-Transparent-2.png' %}" alt="..." /></a>
+            </div>
+            <div>
+                {% if messages %} 
+                    {% for message in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert"> 
+                        <h6><strong>{{ message }}</strong></h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    {% endfor %} 
+                {% endif %}
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - Sams Dyno - Built by Adm.bjmn</div></div>
+            <!-- If use user is auth change to logout -->
+            <div style='padding-left:5px;'>
+            {% if user.is_authenticated %} 
+                <a href="{% url 'change_password' %}"><button type="button" class="btn btn-outline-info btn-sm">Change Password</button></a>
+            {% else %}
+                <a href="{% url 'login_user' %}"><button type="button" class="btn btn-outline-info btn-sm"> Staff Login</button></a>
+            {% endif %}
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- SimpleLightbox plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js'%}"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
