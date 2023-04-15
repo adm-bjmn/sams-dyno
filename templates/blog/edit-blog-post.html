@@ -41,11 +41,8 @@
         <div class="col-lg-8 align-self-end">
           <form action= "" method="POST" class = 'auth-form'>
             {% csrf_token %}
-            {% for fields in form  %}
-            <label class="form-label">{{ fields.label }}</label>
-            <div style="padding-bottom: 5px;">{{ fields }}</div>
-    
-            {% endfor %}
+            {{form.as_p}}
+            {{form.media}}
           <div style = 'padding-top: 20px;'>
             <input type="submit", value = "Update", class="btn btn-outline-info" style="width:100%"></input>
           </div>
