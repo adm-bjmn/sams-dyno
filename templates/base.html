@@ -32,7 +32,7 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">News</a></li>
                         <li class="nav-item"><a class="nav-link" Style="color:orange;" href="{% url 'home' %}#contact">Contact</a></li>
                         {% if user.is_authenticated%}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'create_blog' %}">Add Blog Entry</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'create_blog' %}">Add News Entry</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout_user' %}">Logout</a>
                         {% endif %}
                     </ul>
